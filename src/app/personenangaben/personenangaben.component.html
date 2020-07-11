@@ -1,0 +1,101 @@
+<form [formGroup]="personenForm">
+<div class="angaben-person">
+  <div class="row row-anrede">
+  <mat-form-field appearance="fill">
+    <mat-label>Anrede</mat-label>
+    <mat-select formControlName="anrede">
+      <mat-option *ngFor="let anrede of anreden" [value]="anrede">
+        {{anrede}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div class="row">
+  <mat-form-field class="familienname" appearance="fill">
+    <mat-label>Familienname</mat-label>
+    <input formControlName="name" matInput>
+  </mat-form-field>
+
+  <mat-form-field class="vorname" appearance="fill">
+    <mat-label>Vorname</mat-label>
+    <input formControlName="vorname" matInput>
+  </mat-form-field>
+
+    <mat-form-field class="placeholder" appearance="fill">
+      <mat-label>Vorname</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+
+  <div class="row row-geb-datum">
+  <mat-form-field class="geb-datum" appearance="fill">
+    <mat-label>Geburtsdatum</mat-label>
+    <input formControlName="geburtsdatum" matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+  <div class="row row-adresse">
+    <mat-form-field class="strasse" appearance="fill">
+      <mat-label>Strasse, Hausnummer</mat-label>
+      <input formControlName="strasse" matInput>
+    </mat-form-field>
+
+    <mat-form-field class="ort" appearance="fill">
+      <mat-label>Ort</mat-label>
+      <input formControlName="ort" matInput>
+    </mat-form-field>
+
+    <mat-form-field class="plz" appearance="fill">
+      <mat-label>Plz</mat-label>
+      <input formControlName="plz" matInput>
+    </mat-form-field>
+  </div>
+
+  <div class="row row-vericherung">
+    <mat-form-field class="kkk" appearance="fill">
+      <mat-label>Krankenversicherung</mat-label>
+      <input formControlName="kkk" matInput>
+    </mat-form-field>
+    <mat-form-field class="pkkk" appearance="fill">
+      <mat-label>Pflegeversicherung</mat-label>
+      <input formControlName="pkkk" matInput>
+    </mat-form-field>
+    <mat-form-field class="pflegegrad" appearance="fill">
+      <mat-label>Pflegegrad</mat-label>
+      <input formControlName="pflegegrad" matInput>
+    </mat-form-field>
+  </div>
+</div>
+  <div class="vertreter-befragung" (click)="toggleVertreter()">
+    <mat-checkbox class="example-margin">Ich habe einen gesetzlichen Vertreter</mat-checkbox>
+  </div>
+
+  <div [ngStyle]="{display: hasVertreter ? '' : 'none'}" class="angaben-vertreter">
+    <div class="row">
+      <mat-form-field class="anrede-vertreter" appearance="fill">
+        <mat-label>Anrede</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let anrede of anreden" [value]="anrede">
+            {{anrede}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="name-vertreter" appearance="fill">
+        <mat-label>Familienname</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field class="vorname-vertreter" appearance="fill">
+        <mat-label>Vorame</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field class="bezug" appearance="fill">
+        <mat-label>Bezug</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,56 @@
+.angaben-person, .angaben-vertreter {
+  margin-top: 2rem;
+  padding: 10px;
+}
+
+.vertreter-befragung {
+  padding: 0 27px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+  mat-form-field {
+    padding: 0 15px;
+    min-width: 215px;
+
+    &.familienname {
+      flex-grow: 2;
+    }
+    &.name-vertreter {
+      flex-grow: 2;
+    }
+    &.vorname {
+      flex-grow: 2;
+    }
+    &.vorname-vertreter {
+      flex-grow: 2;
+    }
+    &.placeholder {
+      flex-grow: 1;
+      visibility: hidden;
+    }
+    &.strasse {
+      flex-grow: 2;
+    }
+    &.ort {
+      flex-grow: 2;
+    }
+    &.plz {
+      flex-grow: 1;
+    }
+    &.kkk {
+      flex-grow: 2;
+    }
+    &.pkkk {
+      flex-grow: 2;
+    }
+    &.pflegegrad {
+      flex-grow: 1;
+    }
+    &.bezug {
+      flex-grow: 1;
+    }
+  }
+}

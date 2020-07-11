@@ -1,0 +1,59 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step>
+      <ng-template matStepLabel>Leistungsauswahl</ng-template>
+      <app-leistungsauswahl></app-leistungsauswahl>
+    <div class="button-group">
+        <button mat-raised-button matStepperNext>Weiter</button>
+    </div>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Persönliche Informationen</ng-template>
+      <app-personenangaben (onFormValidityChanged)="enableButton($event)"></app-personenangaben>
+      <div class="button-group">
+        <button mat-raised-button matStepperPrevious>Zurück</button>
+        <button [disabled]="isDisabled" mat-raised-button matStepperNext>Weiter</button>
+      </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Stundenangabe</ng-template>
+    <h1 class="title">Wie oft brauchen Sie unsere Unterstützung?</h1>
+    <div class="stunden-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Stunden pro Woche</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Ihre Nachricht an uns</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="button-group">
+      <button mat-raised-button matStepperPrevious>Zurück</button>
+      <button mat-raised-button matStepperNext>Weiter</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <form [formGroup]="kontaktDatenForm">
+    <ng-template matStepLabel>Beratung Anfordern</ng-template>
+    <h1 class="title">Wie möchten Sie kontaktiert werden?</h1>
+    <div class="stunden-row">
+      <mat-form-field appearance="fill">
+        <mat-label>E-Mail</mat-label>
+        <input formControlName="email" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefonnummer</mat-label>
+        <input formControlName="nummer" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="button-group">
+      <button mat-raised-button matStepperPrevious>Zurück</button>
+      <button (click)="openDialog()" [disabled]="enableSubmitButton()" mat-raised-button matStepperNext color="accent">Abschicken
+      </button>
+    </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

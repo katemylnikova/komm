@@ -1,0 +1,26 @@
+<form [formGroup]="terminForm">
+
+<h1>Wahlen Sie bitte das gewünschte Datum</h1>
+<div class="termin-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Datum</mat-label>
+    <input formControlName="termin" matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>E-Mail</mat-label>
+    <input formControlName="email" matInput>
+  </mat-form-field>
+
+  <div *ngIf="showTime">
+    <h3>Verfügbare Zeit</h3>
+    <div class="buttons">
+    <button (click)="openDialog()" mat-raised-button>8:15</button>
+    <button (click)="openDialog()" mat-raised-button>10:55</button>
+    <button (click)="openDialog()" mat-raised-button>14:30</button>
+    <button (click)="openDialog()" mat-raised-button>15:00</button>
+    </div>
+  </div>
+</div>
+</form>
